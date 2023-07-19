@@ -1,0 +1,192 @@
+﻿@model PandoraWebMvc.ViewModels.Layout.LayoutVM
+
+
+<footer class="footer">
+    <div class="conteniar">
+        <div class="footer__sosial">
+            <ul class="footer__sosial-list">
+                <li class="footer__sosial-item">
+                    <a href="#"><img src="~/svg/sosial/fb.svg" alt="fb" /></a>
+                </li>
+                <li class="footer__sosial-item">
+                    <a href="#">
+                        <img src="~/svg/sosial/pinteres.svg" alt="pinteres" />
+                    </a>
+                </li>
+
+                <li class="footer__sosial-item">
+                    <a href="#"><img src="~/svg/sosial/ins.svg" alt="ins" /></a>
+                </li>
+                <li class="footer__sosial-item">
+                    <a href="#">
+                        <img src="~/svg/sosial/youtube.svg" alt="youtube" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__menu">
+            <div class="footer__menu-box">
+                <h1 class="footer__menu-title">KƏŞF EDİN</h1>
+                <ul class="footer__menu-list">
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Talismanlar</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Bilərziklər</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Sırğalar</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Üzüklər</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Boyunbağı və kulonlar</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Hədiyyələr</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a class="footer__menu-link" href="#">Disney x Pandora</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__menu-box footer__menu-box-flex">
+                @foreach (var fm in Model.FooterMenus)
+                {
+                    @foreach (var item in fm.Translates)
+                    { <div class="flex-footer">
+                        <h1 class="footer__menu-title">@item.Name</h1>
+                            <ul class="footer__menu-list" style="padding-left: 0rem !important;">
+                            @foreach (var menutItem in fm.Items)
+                            {
+                                @foreach (var items in menutItem.FooterItemTranslates)
+                                {
+                                    <li class="footer__menu-item">
+                                        <a class="footer__menu-link" href="">@items.Name</a>
+                                    </li>
+                                }
+
+                            }
+                          
+                        </ul>
+                      </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+        <div class="footer__menu-mob">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">KƏŞF EDİN</div>
+                    <div class="accordion-content">
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Talismanlar</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Bilərziklər</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Sırğalar</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Üzüklər</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Boyunbağı və kulonlar</a>>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Hədiyyələr</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Disney x Pandora</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">BİZİM HAQQIMIZDA</div>
+                    <div class="accordion-content">
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Bizim haqqımızda</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Bizimlə Əlaqə</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Kariyer</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Xidmət Şərtləri</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Geri qaytarma siyasəti</a>>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">FAYDALI MƏLUMAT</div>
+                    <div class="accordion-content">
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Çatdırılma Siyasəti</a>>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Qaytarma Siyasəti</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Mübadilə və geri qaytarma forması</a>>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Təkliflərin tənzimlənməsi</a>>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Ölçü bələdçisi</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Gizlilik Siyasəti</a>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Şərtlər və Qaydalar</a>>
+                            </li>
+                            <li class="footer__menu-item">
+                                <a class="footer__menu-link" href="#">Fırıldaqçılıq</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <div class="footer__copy">
+        <ul class="footer__copy-list">
+            <li class="footer__copy-item">
+                <a href="#"><img src="~/svg/peymant/amex.svg" alt="amex" /></a>
+            </li>
+            <li class="footer__copy-item">
+                <a href="#">
+                    <img src="~/svg/peymant/applaPay.svg" alt="applaPay" />
+                </a>
+            </li>
+
+            <li class="footer__copy-item">
+                <a href="#">
+                    <img src="~/svg/peymant/masterCard.svg" alt="masterCard" />
+                </a>
+            </li>
+            <li class="footer__copy-item">
+                <a href="#"><img src="~/svg/peymant/visa.svg" alt="visa" /></a>
+            </li>
+        </ul>
+
+        <span class="footer__copy-con">© 2023, Pandorastore Romania</span>
+    </div>
+</footer>

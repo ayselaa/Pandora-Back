@@ -1,0 +1,163 @@
+﻿@model LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<main>
+    <div class="spacingSize" style="margin-bottom: 11rem;"></div>
+    <section class="login">
+        <div class="conteniar">
+            <div class="banner">
+                <a href="#">Ana Səhifə</a>
+                <span>›</span>
+                <a href="#">Hesab</a>
+            </div>
+            <div class="setup">
+                <div class="setup__box">
+                    <h1 class="login__title">Daxil olun</h1>
+
+                    @* Display validation errors for model fields except EmailOrUsername and Password *@
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    @* Display general error message only if there are no errors for EmailOrUsername and Password fields *@
+                    @{
+                        var emailOrUsernameError = ViewData.ModelState["EmailOrUsername"]?.Errors.FirstOrDefault();
+                        var passwordError = ViewData.ModelState["Password"]?.Errors.FirstOrDefault();
+                        var hasEmailOrUsernameError = emailOrUsernameError != null;
+                        var hasPasswordError = passwordError != null;
+                        var shouldDisplayGeneralError = !hasEmailOrUsernameError && !hasPasswordError;
+                    }
+
+                    @if (shouldDisplayGeneralError)
+                    {
+                        <div class="text-danger" asp-validation-summary="None"></div>
+                    }
+                    <form method="post" asp-action="Login" class="setup__box-form">
+                        <div class="setup__box-group">
+                            <span class="text-danger" asp-validation-for="EmailOrUsername"></span>
+                            <input type="email" asp-for="EmailOrUsername" class="setup__box-input" placeholder="E-mail" id="email" />
+                            <label class="payBasketleftSide__placholder" for="email">
+                                E-mail
+                            </label>
+                        </div>
+                        
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                        <div style="border: 1px solid black; width: 100%; height: 45px;">
+                            <div class="setup__box-group" style="display: flex; justify-content: center; align-items: center; justify-content: space-between; user-select: none;">
+                                <input type="password" asp-for="Password" class="password-input setup__box-input" style="padding-left: 20px; outline: none; padding-left: 9px; display: flex; align-items: center; padding-top: 0.7rem; box-shadow: none; user-select: none; height: 100%;" placeholder="Şifrə" id="pass1" />
+                                <label class="payBasketleftSide__placholder" for="pass">
+                                    Şifrə
+                                </label>
+                                <span class="material-symbols-outlined visibility" style="margin-right: 1rem; margin-top: 9px; cursor: default; user-select: none; color: gray;">
+                                    <i class="fa-solid fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                         <a class="setup__box-forget activForgetPassword" style="margin-top: 1rem;" asp-controller="Account" asp-action="ForgotPassword">Parolu Unutmusunuz?</a>
+                        
+                        <div class="login">
+                            <div class="login-button" style="text-align: center; margin-bottom: 2rem; margin-top: 2rem;">
+                                <button style="background: black; color: white; font-weight: 400; padding: 13px 38px 13px 38px; text-transform: none; font-size: 14px; border-radius: 0;" type="submit" class="btn btn-custom-size lg-size btn-pronia-primary">
+                                    Daxil Ol
+                                </button>
+                            </div>
+                        </div>
+                        
+                      <a asp-controller="Account" asp-action="Register" class="setup__box-register">Hesab Yarat</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+@*<main>
+    <div class="spacingSize" style="    margin-bottom: 11rem;">
+    </div>
+    <section class="login">
+        <div class="conteniar">
+              <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="banner">
+                <a href="#">Ana Səhifə</a>
+                <span>›</span>
+                <a href="#">Hesab</a>
+            </div>
+            <div class="setup">
+                <div class="setup__box">
+                    <h1 class="login__title">Daxil olun</h1>
+                    <form method="post" asp-action="Login" class="setup__box-form">
+                        <div class="setup__box-group">
+                            <input type="email" asp-for="EmailOrUsername"
+                                   class="setup__box-input"
+                                   placeholder="E-mail"
+                                   id="email" />
+                            <label class="payBasketleftSide__placholder" for="email">
+                                E-mail
+                            </label>
+                           <span class="text-danger" asp-validation-for="EmailOrUsername"></span>
+                            
+                        </div>
+                        
+                        <div style="border: 1px solid black; width: 100%;
+                height: 45px;">
+                            <div class="setup__box-group"
+                                 style="display: flex;
+                    justify-content: center;
+                     align-items: center;
+                     justify-content: space-between;
+                     user-select: none;
+                ">
+                                <input type="password" asp-for="Password"
+                                       class="password-input setup__box-input"
+                                       style="
+                      padding-left: 20px;
+                      outline: none;
+                      padding-left: 9px;
+                      display: flex;
+                      align-items: center;
+                      padding-top: 0.7rem;
+                      box-shadow: none;
+                      user-select: none;
+                      height: 100%;
+                     "
+                                       placeholder="Şifrə"
+                                       id="pass1" />
+                                <label class="payBasketleftSide__placholder" for="pass">
+                                    Şifrə
+                                </label>
+                                <span class="material-symbols-outlined visibility" style="margin-right: 1rem; margin-top: 9px;  cursor: default; user-select: none; color: gray;">
+                                    <i class="fa-solid fa-eye"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                        <a class="setup__box-forget activForgetPassword" style="margin-top: 1rem;" asp-controller="Account" asp-action="ForgotPassword">Parolu Unutmusunuz?</a>
+                    
+                        <div class="login">
+                            <div class="login-button" style="text-align: center;margin-bottom: 2rem;margin-top: 2rem;">
+                                <button style="background: black;
+                                                   color: white;
+                                                   font-weight: 400;
+                                                   padding: 13px 38px 13px 38px;
+                                                   text-transform: none;
+                                                   font-size: 14px;
+                                                   border-radius: 0;"
+                                        type="submit" class="btn btn-custom-size lg-size btn-pronia-primary">
+                                    Daxil Ol
+                                </button>
+                            </div>
+                        </div>
+                        <a asp-controller="Account" asp-action="Register" class="setup__box-register">Hesab Yarat</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>*@

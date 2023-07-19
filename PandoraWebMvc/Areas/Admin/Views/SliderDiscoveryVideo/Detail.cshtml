@@ -1,0 +1,28 @@
+﻿@model SliderDiscoveryVideoDetailVM
+
+<div class="sliderdetails">
+<h1>Slider Details</h1>
+
+<div>
+    <h4>Slider ID: @Model.Id</h4>
+    <img src="~/sliderdiscoveryvideogallery/@Model.Video" class="img-fluid" alt="Slider Image">
+</div>
+
+<hr />
+
+<h4>Translations:</h4>
+
+@foreach (var translate in Model.Translates)
+{
+    <div>
+        <h5>@translate.LangCode</h5>
+        <p>Title: @translate.Tittle</p>
+        <p>Description: @translate.Description</p>
+        <p>Links: @translate.Links</p>
+    </div>
+
+    <hr />
+}
+
+    <a class="detail-back" asp-action="Index">Back to List</a>
+</div>

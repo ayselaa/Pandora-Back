@@ -1,0 +1,54 @@
+﻿@model FooterMenuItemUpdateVM
+
+@{
+     ViewData["Title"] = "Edit";
+}
+<div class="sliderdetails">
+
+ <h2 class="mt-edit">Edit Footer Item</h2>
+
+@using (Html.BeginForm("Edit", "FooterMenuItem", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mt-4">
+        @Html.LabelFor(model => model.FooterMenuId, "Footer Menu")
+        @Html.DropDownListFor(model => model.FooterMenuId, ViewBag.Menus as SelectList, "-- Select Footer Menu --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FooterMenuId, "", new { @class = "text-danger" })
+    </div>
+
+    @for (var i = 0; i < Model.Translates.Count; i++)
+    {
+        <div class="form-group mt-4">
+            @Html.HiddenFor(model => model.Translates[i].LangCode)
+            @Html.LabelFor(model => model.Translates[i].Name, $"Name ({Model.Translates[i].LangCode})")
+            @Html.TextBoxFor(model => model.Translates[i].Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Translates[i].Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mt-4">
+            @Html.LabelFor(model => model.Translates[i].Description, $"Description ({Model.Translates[i].LangCode})")
+            @Html.TextAreaFor(model => model.Translates[i].Description, new { @class = "form-control", @id = $"description-text-{i}" })
+            @Html.ValidationMessageFor(model => model.Translates[i].Description, "", new { @class = "text-danger" })
+        </div>
+    }
+
+    <div class="form-group mt-4">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-info" })
+    </div>
+}
+ </div>
+
+@section Scripts{
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        
+        @for (var i = 0; i < Model.Translates.Count; i++)
+        {
+            <text>
+            CKEDITOR.replace("description-text-@i");
+            </text>
+        }
+    </script>
+}

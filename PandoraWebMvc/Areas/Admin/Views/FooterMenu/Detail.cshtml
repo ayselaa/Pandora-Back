@@ -1,0 +1,20 @@
+﻿@model FooterMenuDetailVM
+
+<div class="footermenu-detail">
+<h1>Footer Menu Details</h1>
+
+
+
+@foreach (var translate in Model.Translates)
+{
+    <div>
+        <h5>@translate.LangCode</h5>
+        <p>Title: @translate.Name</p>
+    </div>
+
+    <hr />
+}
+
+<a class="detail-back" asp-action="Index">Back to List</a>
+
+</div>

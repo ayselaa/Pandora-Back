@@ -1,0 +1,102 @@
+﻿@model BannerCreateVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+
+    <div class="entert-form" style="margin-top:20px">
+
+        <h1>Create Banner</h1>
+
+        <form method="post" enctype="multipart/form-data" asp-action="Create">
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[0].LangCode">Language Code</label>
+                <input type="text" id="translates[0].LangCode" name="Translates[0].LangCode" class="form-control addhoverinput" value="az" required>
+
+            </div>
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[0].Photo">Photo</label>
+                <input type="file" id="translates[0].Photo" name="Translates[0].Photo" class="form-control-file addhoverinput" required />
+                <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 20%; margin-top: 10px;" />
+
+            </div>
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[0].Links">Links</label>
+                <textarea id="translates[0].Links" name="Translates[0].Links" class="form-control addhoverinput" required></textarea>
+            </div>
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[1].LangCode">Language Code</label>
+
+                <input type="text" id="translates[1].LangCode" name="Translates[1].LangCode" class="form-control addhoverinput" value="en" required>
+
+            </div>
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[1].Photo">Photo</label>
+                <input type="file" id="translates[1].Photo" name="Translates[1].Photo" class="form-control-file addhoverinput" required />
+                <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 20%; margin-top: 10px;" />
+
+            </div>
+
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[1].Links">Links</label>
+                <textarea id="translates[1].Links" name="Translates[1].Links" class="form-control addhoverinput" required></textarea>
+            </div>
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[2].LangCode">Language Code</label>
+
+                <input type="text" id="translates[2].LangCode" name="Translates[2].LangCode" class="form-control addhoverinput" value="ru" required>
+            </div>
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[2].Photo">Photo</label>
+                <input type="file" id="translates[2].Photo" name="Translates[2].Photo" class="form-control-file addhoverinput" required />
+                <img id="previewImage" src="#" alt="Preview" style="display: none; max-width: 20%; margin-top: 10px;" />
+
+            </div>
+
+
+            <div class="form-group  mt-2 mb-3">
+                <label class="labelstyle" for="translates[2].Links">Links</label>
+                <textarea id="translates[2].Links" name="Translates[2].Links" class="form-control addhoverinput" required></textarea>
+            </div>
+
+            <button type="submit" class="btn createbuttonn">Create</button>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    const languageCodeInputs = document.querySelectorAll('input[name^="Translates["][name$="].LangCode"]');
+    const photoInputs = document.querySelectorAll('input[name^="Translates["][name$="].Photo"]');
+    const previewImages = document.querySelectorAll('img[id^="previewImage"]');
+
+    for (let i = 0; i < photoInputs.length; i++) {
+        const photoInput = photoInputs[i];
+        const previewImage = previewImages[i];
+
+        photoInput.addEventListener("change", function() {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener("load", function() {
+                    previewImage.setAttribute("src", this.result);
+                    previewImage.style.display = "block";
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+                previewImage.setAttribute("src", "");
+                previewImage.style.display = "none";
+            }
+        });
+    }
+</script>

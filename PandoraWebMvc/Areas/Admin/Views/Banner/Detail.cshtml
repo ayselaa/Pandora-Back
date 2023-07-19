@@ -1,0 +1,18 @@
+﻿@model BannerDetailVM
+<div class="sliderdetails">
+<h1 style="margin-top:55px">Banner Details</h1>
+
+
+@foreach (var translate in Model.Translates)
+{
+    <div>
+        <h5>@translate.LangCode</h5>
+        <p>Links: @translate.Links</p>
+            <img src="~/bannergallery/@translate.Image" class="sliderdetail-img" alt="Banner Image">
+    </div>
+
+    <hr />
+}
+
+    <a class="detail-back" asp-action="Index">Back to List</a>
+</div>

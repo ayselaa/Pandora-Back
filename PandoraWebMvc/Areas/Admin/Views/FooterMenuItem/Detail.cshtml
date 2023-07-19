@@ -1,0 +1,20 @@
+﻿@model FooterMenuItemDetailVM
+
+<h1>Footer Item Detail</h1>
+
+<div>
+    <h2 class="header-fmi">Footer Menu Name: @Model.MenuName</h2>
+
+    <ul>
+        @foreach (var translate in Model.Translates)
+        {
+            <li class="fmi-detail">
+                <h4>Language Code: @translate.LangCode</h4>
+                <p>Name: @translate.Name</p>
+                <p>Description: @translate.Description</p>
+              
+            </li>
+        }
+    </ul>
+
+</div>

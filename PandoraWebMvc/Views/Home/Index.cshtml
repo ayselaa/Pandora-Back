@@ -1,0 +1,277 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+<main>
+    <div class="full-conteniar">
+        <div class="spacingSize"></div>
+
+
+        @foreach (var banner in Model.Banners)
+
+        {
+            foreach (var item in banner.BannerTranslates)
+            {
+                <img src="~/bannergallery/@item.Image" alt="bannerImg" />
+            }
+        }
+
+
+        <section class="homeslider">
+            <div class="slider__box">
+                @foreach (var slider in Model.Sliders)
+                {
+                    <div class="slider-item" style="position:relative;">
+                        <img src="~/slidergallery/@slider.Image" alt="slider-1" />
+                        @foreach (var item in slider.SlidersTranslates)
+                        {
+                            <div class="slider-content"
+                         style="position: absolute;top: 50%;left: 28%;transform: translate(-50%, -50%);text-align: center;color:black;">
+                                <h1 style="font-size:12px; font-weight:700; text-transform:uppercase;" class="slider-title">@item.Tittle</h1>
+                                <div class="slider-text">
+                                    <p style="font-size:4rem; font-weight:700; text-transform:uppercase; color:black;">@item.Description</p>
+                                </div>
+                                <a href="#" class="slider-btnn" style="color:white; background:black; padding:1rem;">SHOP NOW</a>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </section>
+
+        <section class="rings">
+            <div class="rings__box">
+                <h1 class="rings__title">Zərgərlik dünyasını kəşf edin</h1>
+
+                <div class="rings__flex">
+                    <div class="rings__flex-box">
+                        <a href="#">
+                            <img src="~/img/rings/rings-1.jpg" alt="rings-1" />
+                            <p class="rings__subtitle">YENİ GƏLƏNLƏR</p>
+                        </a>
+                    </div>
+                    <div class="rings__flex-box">
+                        <a href="#">
+                            <img src="~/img/rings/rings-2.png" alt="rings-2" />
+                            <p class="rings__subtitle">TALİSMANLAR</p>
+                        </a>
+                    </div>
+                    <div class="rings__flex-box">
+                        <a href="#">
+                            <img src="~/img/rings/rings-3.png" alt="rings-3" />
+                            <p class="rings__subtitle">BİLƏRZİKLƏR</p>
+                        </a>
+                    </div>
+                    <div class="rings__flex-box">
+                        <a href="#">
+                            <img src="~/img/rings/rings-4.png" alt="rings-4" />
+                            <p class="rings__subtitle">ÜZÜKLƏR</p>
+                        </a>
+                    </div>
+                    <div class="rings__flex-box">
+                        <a href="#">
+                            <img src="~/img/rings/rings-5.png" alt="rings-5" />
+                            <p class="rings__subtitle">SIĞALAR</p>
+                        </a>
+                    </div>
+                    <div class="rings__flex-box">
+                        <a href="#">
+                            <img src="~/img/rings/rings-6.png" alt="rings-6" />
+                            <p class="rings__subtitle">BOYUNBAĞILAR</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sliderInfo">
+            <div class="sliderInfo__flex">
+                <div class="sliderInfo__box-width">
+                    <h1 class="sliderInfo__box-title" style="text-align: left;">
+                        Yaz üçün yeni üslublarımızı kəşf edin
+                    </h1>
+                    <p class="sliderInfo__box-desc">
+                        Yeni başlanğıclar, nikbinlik və yeni imkanlar zamanıdır.
+                        Təbiətdən ilhamlanan yeni zinət əşyaları ilə günəşin ilk
+                        şüalarını və yazın simvollarını yanınızda saxlayın.
+                    </p>
+                    <a class="sliderInfo__box-link" href="#">İNDİ ALMAQ</a>
+                </div>
+
+                <video width="685" height="523" loop muted autoplay>
+                    <source src="https://cdn.shopify.com/s/files/1/0609/5467/3325/t/14/assets/fature-module.mp4?v=1680776865"
+                            type="video/mp4" />
+                    <source src="https://cdn.shopify.com/s/files/1/0609/5467/3325/t/14/assets/fature-module.mp4?v=1680776865"
+                            type="video/ogg" />
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+        </section>
+
+        <section class="homeProduct">
+            <div class="homeProduct__flex">
+                <div class="homeProduct__box">
+                    <a href="#">
+                        <img src="~/img/product/product-1.png"
+                             alt="Original Image 1"
+                             data-hover="~/img/product/product-2.png" />
+
+                        <h1 class="homeProduct__box-title">
+                            Parıldayan Qaranquş Sitat Qoşa Kulon Talisman
+                        </h1>
+                        <p>249,00 AZN</p>
+                    </a>
+                </div>
+
+                <div class="homeProduct__box">
+                    <a href="#">
+                        <img src="~/img/product/product-2.png"
+                             alt="Original Image 2"
+                             data-hover="~/img/product/product-1.png" />
+                        <h1 class="homeProduct__box-title">
+                            Parıldayan Qaranquş Sitat Qoşa Kulon Talisman
+                        </h1>
+                        <p>249,00 AZN</p>
+                    </a>
+                </div>
+
+                <div class="homeProduct__box">
+                    <a href="#">
+                        <img src="~/img/product/product-3.png"
+                             alt="product-2"
+                             data-hover="~/img/product/product-2.png" />
+                        <h1 class="homeProduct__box-title">
+                            Parıldayan Qaranquş Sitat Qoşa Kulon Talisman
+                        </h1>
+                        <p>249,00 AZN</p>
+                    </a>
+                </div>
+                <div class="homeProduct__box">
+                    <a href="#">
+                        <img src="~/img/product/product-4.png"
+                             alt="product-2"
+                             data-hover="~/img/product/product-3.png" />
+                        <h1 class="homeProduct__box-title">
+                            Parıldayan Qaranquş Sitat Qoşa Kulon Talisman
+                        </h1>
+                        <p>249,00 AZN</p>
+                    </a>
+                </div>
+
+                <div class="homeProduct__box">
+                    <a href="#">
+                        <img src="~/img/product/product-5.png"
+                             alt="product-2"
+                             data-hover="~/img/product/product-4.png" />
+                        <h1 class="homeProduct__box-title">
+                            Parıldayan Qaranquş Sitat Qoşa Kulon Talisman
+                        </h1>
+                        <p>249,00 AZN</p>
+                    </a>
+                </div>
+                <div class="homeProduct__box">
+                    <a href="#">
+                        <img src="~/img/product/product-6.png"
+                             alt="product-2"
+                             data-hover="~/img/product/product-5.png" />
+                        <h1 class="homeProduct__box-title">
+                            Parıldayan Qaranquş Sitat Qoşa Kulon Talisman
+                        </h1>
+                        <p>249,00 AZN</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        @*      <section class="sliderInfo">
+        <div class="sliderInfo__flex">
+        <div class="slider">
+        @foreach (var sld in Model.SliderDiscoveries)
+        {
+        <div class="sliderInfo__box">
+        <img src="~/sliderdiscoverygallery/@sld.Image" alt="slider-1" />
+        @foreach (var item in sld.SliderDiscoveryTranslates)
+        {
+        <div class="sliderInfo__box-width">
+        <h1 class="sliderInfo__box-title" style="text-align: left;">
+        @item.Tittle
+        </h1>
+        <p class="sliderInfo__box-desc">
+        @item.Description
+        </p>
+        <a class="sliderInfo__box-link" href="#">İNDİ ALMAQ</a>
+        </div>
+        }
+        </div>
+        }
+        </div>
+        </div>
+        </section>*@
+
+
+     
+
+        @foreach (var bannerGift in Model.BannerGifts)
+        {
+            var imageUrl = Url.Content($"~/bannergiftgallery/{bannerGift.Image}");
+            @foreach (var item in bannerGift.BannerGiftTranslates)
+            {
+                <section class="homeBanner" style="background-image: url('@imageUrl');">
+                    <div class="homeBanner__box">
+                        <h1 class="homeBanner__box-title">
+                            @item.Tittle <br />
+                            @item.Description
+                        </h1>
+                        <a class="homeBanner__box-link" href="#">@item.Link</a>
+                    </div>
+                </section>
+
+            }
+
+
+
+        }
+
+
+
+        <section class="homeNews">
+            <div class="conteniar">
+                <div class="homeNews__flex">
+                    @foreach (var blog in Model.Blogs)
+                    {
+                        <div class="homeNews__box">
+                            <img src="~/bloggallery/@blog.Image" alt="news-1.png" />
+                            @foreach (var item in blog.BlogTranslates)
+                            {
+                                <h1 class="homeNews__box-title">@item.Tittle</h1>
+                                <p class="homeNews__box-subtitle">
+                                    @item.ShortDescription
+                                </p>
+                                <a class="homeNews__box-link" href="#">@item.Links</a>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="contactMe__box">
+        <div class="contactMe-phone">
+            <a href="#"> <i class="fas fa-phone-alt"></i></a>
+        </div>
+        <div class="contactMe-whatsap">
+            <a href="#"> <i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <div class="contactMe">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+</main>
+
